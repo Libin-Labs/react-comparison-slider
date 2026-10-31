@@ -1,0 +1,54 @@
+.lp-comparison {
+  --comparison-accent: #fff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+  background: #e2e5e9;
+}
+.lp-comparison[data-orientation='vertical'] {
+  touch-action: pan-x;
+}
+.lp-comparison > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  pointer-events: none;
+}
+.lp-comparison-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--comparison-accent);
+  transform: translateX(-50%);
+  cursor: ew-resize;
+}
+.lp-comparison-handle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: #17212b;
+  color: white;
+}
+.lp-comparison[data-orientation='vertical'] .lp-comparison-handle {
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: 2px;
+  width: auto;
+  transform: translateY(-50%);
+  cursor: ns-resize;
+}
+.lp-comparison-handle:focus-visible {
+  outline: 3px solid #2459b8;
+  outline-offset: 3px;
+}
+.lp-comparison-handle[aria-disabled='true'] {
+  cursor: default;
+}
